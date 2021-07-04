@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.groceryapplication.views.ProductListActivity" />
+
+        <variable
+            name="viewModel"
+            type="com.groceryapplication.viewModel.ProductViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.ProductListActivity">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:onClick="@{()->activity.onBackPressed()}"
+
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            app:layout_constraintBottom_toBottomOf="@id/clSearch" />
+
+        <ImageView
+            android:id="@+id/ivCart"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_baseline_shopping_cart_24"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            app:layout_constraintBottom_toBottomOf="@id/clSearch" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clSearch"
+            android:layout_width="0dp"
+            app:layout_constraintStart_toEndOf="@id/ivBack"
+            app:layout_constraintEnd_toStartOf="@id/ivCart"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/grey_bg">
+
+            <ImageView
+                android:id="@+id/ivMike"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/mike"
+                android:layout_marginRight="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="15dp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@null"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivMike"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                android:hint="@string/search_groceries_or_products"
+                android:textSize="14sp"
+                android:fontFamily="@font/seoge" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintTop_toBottomOf="@id/clSearch"
+            android:layout_marginTop="10dp"
+            android:background="#F1F1F1" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintTop_toBottomOf="@id/view"
+            android:layout_marginTop="15dp"
+            android:text="@string/fruits_vegetables"
+            android:textColor="@color/black"
+            android:fontFamily="@font/gilroyetrabold"
+            android:textSize="18sp"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/ivFilterList"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintTop_toBottomOf="@id/view"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_baseline_filter_list_24"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/rvProducts"
+
+            app:layout_constraintTop_toBottomOf="@id/ivFilterList"
+            android:layout_marginHorizontal="10dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
